@@ -30,7 +30,7 @@
     display: flex;
     position: relative;
 }
-/* position: absolute;과 right: 0;를 사용하여 검색창을 .menu-area의 오른쪽 끝에 고정시킴으로써, 검색창이 다른 요소들에 영향을 미치지 않게함 */
+/* position: absolute;과 right: 0;을 사용하여 검색창을 .menu-area의 오른쪽 끝에 고정시킴으로써, 검색창이 다른 요소들에 영향을 미치지 않게함 */
 .menu-area > div {
     position: absolute;
     right: 0;
