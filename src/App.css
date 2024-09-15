@@ -1,0 +1,87 @@
+.login-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* 로그인하고 사용자버튼 수직정렬 */
+    margin: 20px;
+    cursor: pointer;
+}
+.login-text {
+    margin-left: 5px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.menu-list {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    flex-grow: 1; /* 메뉴 리스트가 중앙에 배치되도록 설정 */
+    text-align: center;
+    cursor: pointer;
+}
+.menu-list li {
+    padding: 10px;
+}
+.menu-area {
+    display: flex;
+    position: relative;
+}
+/* position: absolute;과 right: 0;를 사용하여 검색창을 .menu-area의 오른쪽 끝에 고정시킴으로써, 검색창이 다른 요소들에 영향을 미치지 않게함 */
+.menu-area > div {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.product-img {
+    width: 280px;
+    height: 380px;
+    cursor: pointer;
+}
+
+
+/* Footer */
+.footer {
+background-color: #333;
+color: #fff;
+padding: 40px 0;
+margin-top: 100px;
+text-align: center;
+}
+
+.footer-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.footer p {
+margin: 0;
+}
+
+.footer-links {
+list-style: none;
+padding: 0;
+margin: 10px 0 0;
+display: flex;
+justify-content: center;
+}
+
+.footer-links li {
+margin: 0 10px;
+}
+
+.footer-links a {
+color: #fff;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.footer-links a:hover {
+color: #ccc;
+}
