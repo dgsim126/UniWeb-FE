@@ -1,51 +1,50 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { login } from '../APIs/loginAPI';
+import { regist } from '../APIs/loginAPI';
 
-function SignInComponent({ toggleComponent, handleLogin }) {
+// 재검토 필요
+function RegisterComponent({ toggleComponent }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  // 제출 폼 클릭 시 handleSubmit 함수 실행.
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const userData = {
+    if (password !== confirmPassword) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+
+    const registData = {
       id: email,
-      password
+      password,
     };
 
     try {
-    //   const response = await fetch('/api/login', { -> 코드 리팩토링.
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(userData),
-    //   });
-      const response = await login(userData);
+      const response = await regist(registData);
 
       if (response.status >= 200 && response.status < 300) {
-        const message = await response.json();
+        const message = await response.data;
         alert(message);
-        handleLogin();  
+        toggleComponent(); // 회원가입 후 로그인 화면으로 전환
       } else {
         const errorMessage = await response.text();
         throw new Error(errorMessage);
       }
 
     } catch (error) {
-      console.error('로그인 실패: ', error);
-      alert('로그인에 실패했습니다');
+      console.error('회원가입 실패: ', error);
+      alert('회원가입에 실패했습니다');
     }
   };
 
   return (
     <div>
-      <LoginForm onSubmit={handleSubmit}>
-        <SignInHeader>🔒 로그인 🔒</SignInHeader>
-        <div id="logincomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <InputDiv className="loginId">
+      <RegisterForm onSubmit={handleSubmit}>
+        <RegisterHeader>🔑 회원가입 🔑</RegisterHeader>
+        <div id="registercomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <InputDiv className="registerId">
             <Input
               type="text"
               maxLength="30"
@@ -58,7 +57,7 @@ function SignInComponent({ toggleComponent, handleLogin }) {
           </InputDiv>
         </div>
         <div id="passwordcomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <InputDiv className="loginPassword">
+          <InputDiv className="registerPassword">
             <Input
               type="password"
               id="password"
@@ -69,20 +68,32 @@ function SignInComponent({ toggleComponent, handleLogin }) {
             />
           </InputDiv>
         </div>
-        <SignInButton type="submit">로그인</SignInButton>
-        <SignUpButton type="button" onClick={toggleComponent}>회원가입</SignUpButton>
-      </LoginForm>
+        <div id="confirmPasswordcomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <InputDiv className="confirmPassword">
+            <Input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              autoComplete="new-password"
+              onChange={(event) => setConfirmPassword(event.target.value)}
+              placeholder='비밀번호 확인'
+            />
+          </InputDiv>
+        </div>
+        <RegisterButton type="submit">회원가입</RegisterButton>
+        <SignInButton type="button" onClick={toggleComponent}>로그인으로 돌아가기</SignInButton>
+      </RegisterForm>
     </div>
   );
 }
 
-export default SignInComponent;
+export default RegisterComponent;
 
-const SignInHeader = styled.div`
+const RegisterHeader = styled.div`
   margin-bottom: 30px;
 `;
 
-const LoginForm = styled.form`
+const RegisterForm = styled.form`
   font-size: 15px;
   padding-top: 80px;
   padding-bottom: 100px;
@@ -110,7 +121,7 @@ const InputDiv = styled.div`
   width: 100%;
 `;
 
-const SignInButton = styled.button`
+const RegisterButton = styled.button`
   width: 60%;
   height: 50px;
   color: black;
@@ -119,7 +130,7 @@ const SignInButton = styled.button`
   cursor: pointer;
 `;
 
-const SignUpButton = styled.button`
+const SignInButton = styled.button`
   width: 60%;
   height: 50px;
   color: black;
