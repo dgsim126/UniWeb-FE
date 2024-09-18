@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { regist } from '../APIs/loginAPI';
 
-// 재검토 필요
+// 재검토 필요!
 function RegisterComponent({ toggleComponent }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
