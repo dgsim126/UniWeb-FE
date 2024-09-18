@@ -30,7 +30,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
       </div>
 
       <div className="logo" onClick={goToMain}>
-        <img width="150" src={uniweb} alt="유니웹" />
+        <img width="150" height="120" src={uniweb} alt="유니웹" />
       </div>
 
       <div className="menu-area">

@@ -1,5 +1,6 @@
 import React from 'react'
 
+// 추후 회의 후 결정.
 const Play = () => {
   return (
     <div>
