@@ -21,7 +21,6 @@ export const regist = async (registData) => {
     }
 };
 
-
 export const logout = async () => {
     try {
         const response = await axiosInstance.post(`/api/logout`);
