@@ -32,7 +32,7 @@ function RegisterComponent({ toggleComponent }) {
       if (response.status >= 200 && response.status < 300) {
         const message = await response.data;
         alert(message);
-        navigate('/login');
+        navigate('/login'); // 다시 로그인 창으로 리디렉션
       } else {
         const errorMessage = await response.data;
         throw new Error(errorMessage);
