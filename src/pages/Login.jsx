@@ -70,7 +70,7 @@ function SignInComponent({ toggleComponent, handleLogin }) {
           </InputDiv>
         </div>
         <SignInButton type="submit">로그인</SignInButton>
-        <SignUpButton type="button" onClick={toggleComponent}>회원가입</SignUpButton>
+        <SignUpButton type="button" onClick={() => navigate('/register')}>회원가입</SignUpButton>
       </LoginForm>
     </div>
   );
