@@ -26,7 +26,7 @@ function SignInComponent({ toggleComponent, handleLogin }) {
       if (response.status >= 200 && response.status < 300) {
         const message = await response.data; // response.json -> data로 변경(수정)
         alert(message);
-        // handleLogin(); 여기에선 정의 x
+        handleLogin(); // 로그인 상태 true로 변경.
         navigate('/');  // 메인 페이지 리디렉션
 
       } else {

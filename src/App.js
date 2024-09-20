@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import AppRouter from './routes/Router';
 import Footer from './components/Footer';
 
-import { RecoilRoot, useSetRecoilState } from 'recoil';
-import { loginState } from './state/atoms';
+import { useSetRecoilState, useRecoilState } from 'recoil';
+import { loginState } from './states/atoms';
 // import PrivateRoute from './route/PrivateRoute';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,14 +31,23 @@ function App() {
     return null;
   };
 
+  const [isSignUp, setIsSignUp] = useState(false); // 회원가입 유무
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); // 로그인 유무
+
+  useEffect(() => {
+    console.log('현재 로그인 상태:', isLoggedIn); // 로그인 상태가 바뀔 때마다 출력
+  }, [isLoggedIn]);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
     <div>
-      <RecoilRoot>
-        <ResetLoginState />
-        <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
-        <AppRouter />
-        <Footer />
-      </RecoilRoot>
+      <ResetLoginState />
+      <Navbar />
+      <AppRouter handleLogin={handleLogin}/>
+      <Footer />
     </div>
   );
 }

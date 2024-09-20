@@ -10,12 +10,12 @@ import CreateForm from '../pages/CreateForm';
 import MyPage from '../pages/MyPage';
 
 // 라우트 코드 모음
-const AppRouter = () => {
+const AppRouter = ({ handleLogin }) => {
   return (
     <Routes>
-      <Route path="/" element={<Post/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/register" element={<Register/>}/>
+      <Route path="/" element={<Post handleLogin={handleLogin} />}/>
+      <Route path="/login" element={<Login handleLogin={handleLogin} />}/>
+      <Route path="/register" element={<Register handleLogin={handleLogin} />}/>
 
       <Route path="/:id" element={<PostDetail />}/>
       <Route path="/play" element={<Play />}/>
