@@ -34,6 +34,7 @@ function App() {
   return (
     <div>
       <RecoilRoot>
+        <ResetLoginState />
         <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
         <AppRouter />
         <Footer />
