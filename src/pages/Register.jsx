@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { regist } from '../APIs/loginAPI';
+import { useNavigate } from 'react-router-dom';
 
-// 재검토 필요!
 function RegisterComponent({ toggleComponent }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,6 +22,8 @@ function RegisterComponent({ toggleComponent }) {
     const registData = {
       id: email,
       password,
+      name,
+      age,
     };
 
     try {
@@ -27,9 +32,9 @@ function RegisterComponent({ toggleComponent }) {
       if (response.status >= 200 && response.status < 300) {
         const message = await response.data;
         alert(message);
-        toggleComponent(); // 회원가입 후 로그인 화면으로 전환
+        navigate('/login');
       } else {
-        const errorMessage = await response.text();
+        const errorMessage = await response.data;
         throw new Error(errorMessage);
       }
 
@@ -43,7 +48,33 @@ function RegisterComponent({ toggleComponent }) {
     <div>
       <RegisterForm onSubmit={handleSubmit}>
         <RegisterHeader>🔑 회원가입 🔑</RegisterHeader>
-        <div id="registercomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        
+        <div id="namecomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <InputDiv className="registerName">
+            <Input
+              type="text"
+              maxLength="30"
+              id="name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              placeholder='이름'
+            />
+          </InputDiv>
+        </div>
+
+        <div id="agecomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <InputDiv className="registerAge">
+            <Input
+              type="number"
+              id="age"
+              value={age}
+              onChange={(event) => setAge(event.target.value)}
+              placeholder='나이'
+            />
+          </InputDiv>
+        </div>
+
+        <div id="idcomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <InputDiv className="registerId">
             <Input
               type="text"
@@ -56,7 +87,8 @@ function RegisterComponent({ toggleComponent }) {
             />
           </InputDiv>
         </div>
-        <div id="passwordcomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+        <div id="pwcomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <InputDiv className="registerPassword">
             <Input
               type="password"
@@ -68,7 +100,8 @@ function RegisterComponent({ toggleComponent }) {
             />
           </InputDiv>
         </div>
-        <div id="confirmPasswordcomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+        <div id="pwcheckcomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <InputDiv className="confirmPassword">
             <Input
               type="password"
@@ -80,6 +113,7 @@ function RegisterComponent({ toggleComponent }) {
             />
           </InputDiv>
         </div>
+
         <RegisterButton type="submit">회원가입</RegisterButton>
         <SignInButton type="button" onClick={toggleComponent}>로그인으로 돌아가기</SignInButton>
       </RegisterForm>
