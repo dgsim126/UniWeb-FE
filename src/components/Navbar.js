@@ -9,10 +9,10 @@ const Navbar = ({authenticate, setAuthenticate}) => {
   const menuList = ["메인 페이지", "게임 생성하기"];
   const navigate = useNavigate();
   const goToLogin = () => {
-    if( authenticate ){ // 로그인 상태일 땐 로그아웃 상태 만들고 홈으로 리디렉션.
+    if( authenticate ){ // 로그인 상태일 땐 로그아웃 상태 만들고 홈으로 리디렉션
       setAuthenticate(false);
       navigate("/");
-    } else { // 로그인 x 상태일 땐 로그인페이지 이동.
+    } else { // 로그인 x 상태일 땐 로그인페이지 이동
       navigate("/login");
     }
   }
