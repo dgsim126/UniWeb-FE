@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { login } from '../APIs/loginAPI';
+import { useNavigate } from 'react-router-dom';
 
 function SignInComponent({ toggleComponent, handleLogin }) {
-  const [email, setEmail] = useState('');
+  const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   // 제출 폼 클릭 시 handleSubmit 함수 실행.
   const handleSubmit = async(event) => {
     event.preventDefault();
 
     const userData = {
-      id: email,
+      id,
       password
     };
 
     try {
-    //   const response = await fetch('/api/login', { -> 코드 리팩토링.
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(userData),
-    //   });
       const response = await login(userData);
 
+      console.log(userData); // { id: "입력된 아이디", password: "입력된 비밀번호" } test.
+      console.log(response, "test"); // test2. 
+
       if (response.status >= 200 && response.status < 300) {
-        const message = await response.json();
+        const message = await response.data; // response.json -> data로 변경(수정)
         alert(message);
-        handleLogin();  
+        // handleLogin(); 여기에선 정의 x
+        navigate('/');  // 메인 페이지 리디렉션
+
       } else {
-        const errorMessage = await response.text();
+        const errorMessage = await response.data; // response.json -> data로 변경(수정)
         throw new Error(errorMessage);
       }
 
@@ -50,9 +50,9 @@ function SignInComponent({ toggleComponent, handleLogin }) {
               type="text"
               maxLength="30"
               id="username"
-              value={email}
+              value={id}
               autoComplete="new-password"
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event) => setId(event.target.value)}
               placeholder='아이디'
             />
           </InputDiv>
