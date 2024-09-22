@@ -47,7 +47,7 @@ function RegisterComponent({ toggleComponent }) {
   return (
     <div>
       <RegisterForm onSubmit={handleSubmit}>
-        <RegisterHeader>🔑 회원가입 🔑</RegisterHeader>
+        <RegisterHeader>👩 회원가입 👩</RegisterHeader>
         
         <div id="namecomp" style={{ width: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <InputDiv className="registerName">
@@ -115,7 +115,7 @@ function RegisterComponent({ toggleComponent }) {
         </div>
 
         <RegisterButton type="submit">회원가입</RegisterButton>
-        <SignInButton type="button" onClick={toggleComponent}>로그인으로 돌아가기</SignInButton>
+        <SignInButton type="button" onClick={() => navigate('/login')}>로그인으로 돌아가기</SignInButton>
       </RegisterForm>
     </div>
   );

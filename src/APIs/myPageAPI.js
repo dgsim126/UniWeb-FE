@@ -7,7 +7,7 @@ export const myPageAPI = async () => {
                 'Cache-Control': 'no-cache'
             },
             withCredentials: true,
-        });
+        }); 
         return response;
     } catch (error) {
         console.error('마이페이지 불러오기 실패:', error);

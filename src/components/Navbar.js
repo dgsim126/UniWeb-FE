@@ -42,8 +42,8 @@ const Navbar = ({ isLoggedIn, handleLogin }) => {
         </div>
       </div>
 
-      <div className="logo" onClick={goToMain}>
-        <img width="120" height="50" src={uniweb} alt="유니웹" />
+      <div className="logo">
+        <img onClick={goToMain} cursor="pointer" width="120" height="40" src={uniweb} alt="유니웹" />
       </div>
 
       <div className="menu-area">

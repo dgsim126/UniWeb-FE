@@ -17,6 +17,7 @@ function App() {
   // }, [authenticate]) // authenticate값이 바뀔 때 마다 실행
 
   const ResetLoginState = () => {
+    // 로그인 상태 초기화
     const setLoginState = useSetRecoilState(loginState);
 
     useEffect(() => {
