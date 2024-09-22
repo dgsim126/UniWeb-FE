@@ -39,13 +39,13 @@ function App() {
   }, [isLoggedIn]);
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    setIsLoggedIn(!isLoggedIn);
   };
 
   return (
     <div>
       <ResetLoginState />
-      <Navbar handleLogin={handleLogin}/>
+      <Navbar isLoggedIn={isLoggedIn} handleLogin={handleLogin}/>
       <AppRouter handleLogin={handleLogin}/>
       <Footer />
     </div>
