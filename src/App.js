@@ -7,8 +7,7 @@ import Footer from './components/Footer';
 
 import { useSetRecoilState, useRecoilState } from 'recoil';
 import { loginState } from './states/atoms';
-// import PrivateRoute from './route/PrivateRoute';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   // const [authenticate, setAuthenticate] = useState(false); // 로그인 유무 파악

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { myPageAPI, updateProfile } from "../APIs/myPageAPI";
 import { useNavigate } from 'react-router-dom';
+import { Container } from "react-bootstrap";
 
 function MyPage() {
     const [userData, setUserData] = useState(null); // 사용자 데이터 상태
@@ -45,7 +46,8 @@ function MyPage() {
     }
 
     return (
-        <Frame>
+        <Container>
+          <Frame>
             <Sidebar>
                 <SidebarItem>내 정보</SidebarItem>
                 <SidebarItem>작성한 글</SidebarItem>
@@ -64,7 +66,8 @@ function MyPage() {
                     <SubmitButton type="submit">수정하기</SubmitButton>
                 </Form>
             </MainContent>
-        </Frame>
+          </Frame>
+        </Container>
     );
 }
 
