@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import styled from "styled-components";
 import { getAllPosts } from "../APIs/postAPI"; // API 호출 함수
+import { useNavigate } from "react-router-dom";
 
 function MainPage() {
     const [posts, setPosts] = useState([]); // 게시글 데이터 상태
+    const navigate = useNavigate();
 
     // API를 호출하여 게시글 목록을 가져오는 useEffect
     useEffect(() => {
@@ -35,7 +37,7 @@ function MainPage() {
                                 <PostTitle>{post.title}</PostTitle>
                                 <PostDate>{new Date(post.date).toLocaleDateString()}</PostDate>
                             </LeftContent>
-                            <PostButton variant="primary" href={`/post/${post.post_key}`}>상세보기</PostButton>
+                            <PostButton variant="primary" onClick={() => navigate(`/post/${post.post_key}`)}>상세보기</PostButton>
                         </PostContainer>
                     </Col>
                 </Row>

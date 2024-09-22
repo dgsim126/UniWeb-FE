@@ -3,10 +3,12 @@ import { Container, Row, Col, Button, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom"; // URL에서 post_key 추출
 import styled from "styled-components";
 import { getPostDetail } from "../APIs/postAPI"; // API 호출 함수
+import { useNavigate } from "react-router-dom";
 
 function PostDetail() {
     const { post_key } = useParams(); // post_key를 URL에서 가져옴
     const [ post, setPost ] = useState(null); // 게시글 데이터 상태
+    const navigate = useNavigate();
 
     // API를 호출하여 게시글 상세 데이터를 가져오는 useEffect
     useEffect(() => {
@@ -43,7 +45,8 @@ function PostDetail() {
                 </ProblemContainer>
             ))}
             <ButtonContainer>
-                <BackButton variant="secondary" href="/">목록으로 돌아가기</BackButton>
+                <PlayButton variant="secondary" onClick={() => navigate('/play')}>게임 플레이하기!</PlayButton>
+                <BackButton variant="secondary" onClick={() => navigate('/')}>목록으로 돌아가기</BackButton>
             </ButtonContainer>
         </Container>
     );
@@ -91,8 +94,15 @@ const ButtonContainer = styled.div`
   margin-top: 40px;
 `;
 
-const BackButton = styled(Button)`
+const PlayButton = styled(Button)`
   padding: 10px 20px;
+  margin: 10px;
   font-size: 1.2rem;
+  background-color: green;
 `;
 
+const BackButton = styled(Button)`
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1.2rem;
+`;

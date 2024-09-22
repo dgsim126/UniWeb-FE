@@ -9,8 +9,10 @@ import Play from '../pages/Play';
 import CreateForm from '../pages/CreateForm';
 import MyPage from '../pages/MyPage';
 
+import ProtectedRoute from "../components/ProtectedRoute"; // 🌟🌟🌟 보호된 라우트 컴포넌트
+
 // 라우트 코드 모음
-const AppRouter = ({ handleLogin }) => {
+const AppRouter = ({ isLoggedIn, handleLogin }) => {
   return (
     <Routes>
       <Route path="/" element={<Post handleLogin={handleLogin} />}/>
@@ -18,9 +20,30 @@ const AppRouter = ({ handleLogin }) => {
       <Route path="/register" element={<Register handleLogin={handleLogin} />}/>
 
       <Route path="/post/:post_key" element={<PostDetail />}/>
-      <Route path="/play" element={<Play />}/>
-      <Route path="/create" element={<CreateForm />}/>
-      <Route path="/my" element={<MyPage />}/>
+      <Route
+        path="/play"
+        element={
+          <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <Play />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/create"
+        element={
+          <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <CreateForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/my"
+        element={
+          <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <MyPage />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   )
 }

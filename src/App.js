@@ -46,7 +46,7 @@ function App() {
     <div>
       <ResetLoginState />
       <Navbar isLoggedIn={isLoggedIn} handleLogin={handleLogin}/>
-      <AppRouter handleLogin={handleLogin}/>
+      <AppRouter isLoggedIn={isLoggedIn} handleLogin={handleLogin}/>
       <Footer />
     </div>
   );
