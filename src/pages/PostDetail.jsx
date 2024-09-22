@@ -6,7 +6,7 @@ import { getPostDetail } from "../APIs/postAPI"; // API 호출 함수
 
 function PostDetail() {
     const { post_key } = useParams(); // post_key를 URL에서 가져옴
-    const [post, setPost] = useState(null); // 게시글 데이터 상태
+    const [ post, setPost ] = useState(null); // 게시글 데이터 상태
 
     // API를 호출하여 게시글 상세 데이터를 가져오는 useEffect
     useEffect(() => {
