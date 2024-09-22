@@ -17,7 +17,7 @@ const AppRouter = ({ handleLogin }) => {
       <Route path="/login" element={<Login handleLogin={handleLogin} />}/>
       <Route path="/register" element={<Register handleLogin={handleLogin} />}/>
 
-      <Route path="/:id" element={<PostDetail />}/>
+      <Route path="/post/:post_key" element={<PostDetail />}/>
       <Route path="/play" element={<Play />}/>
       <Route path="/create" element={<CreateForm />}/>
       <Route path="/my" element={<MyPage />}/>

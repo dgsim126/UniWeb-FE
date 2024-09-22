@@ -11,7 +11,7 @@ const Navbar = ({ isLoggedIn, handleLogin }) => {
   const menuList = [
     { label: "Home", path: "/" },              // Home
     { label: "게임 생성하기", path: "/create" },  // 게임 생성하기
-    { label: "마이 페이지", path: "/my" }    // 마이 페이지
+    { label: "마이페이지", path: "/my" }    // 마이페이지
   ];
 
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ const Navbar = ({ isLoggedIn, handleLogin }) => {
             </li>
           ))}
         </ul>
-        <div>
+        <div className='searchbox'>
           <FontAwesomeIcon icon={faSearch} />
           <input type="text" />
         </div>

@@ -2,9 +2,11 @@ import axiosInstance from "./axiosInstance";
 
 // 모든 게시글 불러오기
 export const getAllPosts = async () => {
+    const token = localStorage.getItem('token');
     try {
         const response = await axiosInstance.get(`/api/post`, {
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Cache-Control': 'no-cache'
             },
             withCredentials: true,
@@ -18,9 +20,11 @@ export const getAllPosts = async () => {
 
 // 게시글 상세보기
 export const getPostDetail = async (postKey) => {
+    const token = localStorage.getItem('token');
     try {
         const response = await axiosInstance.get(`/api/post/${postKey}`, {
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Cache-Control': 'no-cache'
             },
             withCredentials: true,
@@ -36,9 +40,11 @@ export const getPostDetail = async (postKey) => {
 
 // 게시글 작성하기
 export const createPost = async (postData) => {
+    const token = localStorage.getItem('token');
     try {
         const response = await axiosInstance.post(`/api/post/create`, postData, {
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
             },
             withCredentials: true,
