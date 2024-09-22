@@ -21,9 +21,6 @@ const AppRouter = ({ handleLogin }) => {
       <Route path="/play" element={<Play />}/>
       <Route path="/create" element={<CreateForm />}/>
       <Route path="/my" element={<MyPage />}/>
-
-      {/* 추후 인증검사 방식으로 변경 */}
-      {/* <Route path="/my" element={<PrivateRoute authenticate={authenticate} />}/> */}
     </Routes>
   )
 }
