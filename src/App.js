@@ -45,7 +45,7 @@ function App() {
   return (
     <div>
       <ResetLoginState />
-      <Navbar />
+      <Navbar handleLogin={handleLogin}/>
       <AppRouter handleLogin={handleLogin}/>
       <Footer />
     </div>
