@@ -32,6 +32,8 @@ export const getPostDetail = async (postKey) => {
     }
 };
 
+// 게시글 내 게임시작 [/api/post/:key/game]
+
 // 게시글 작성하기
 export const createPost = async (postData) => {
     try {
