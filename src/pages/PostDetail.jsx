@@ -45,7 +45,7 @@ function PostDetail() {
                 </ProblemContainer>
             ))}
             <ButtonContainer>
-                <PlayButton variant="secondary" onClick={() => navigate('/play')}>게임 플레이하기!</PlayButton>
+                <PlayButton variant="secondary" onClick={() => navigate(`/post/${post.post_key}/game`)}>게임 플레이하기!</PlayButton>
                 <BackButton variant="secondary" onClick={() => navigate('/')}>목록으로 돌아가기</BackButton>
             </ButtonContainer>
         </Container>
