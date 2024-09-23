@@ -21,7 +21,7 @@ const AppRouter = ({ isLoggedIn, handleLogin }) => {
 
       <Route path="/post/:post_key" element={<PostDetail />}/>
       <Route
-        path="/play"
+        path="/post/:post_key/game"
         element={
           <ProtectedRoute isLoggedIn={isLoggedIn}>
             <Play />

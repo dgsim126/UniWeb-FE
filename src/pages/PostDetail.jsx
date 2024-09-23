@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button, ListGroup } from "react-bootstrap";
+import { Container, Button, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom"; // URL에서 post_key 추출
 import styled from "styled-components";
 import { getPostDetail } from "../APIs/postAPI"; // API 호출 함수
