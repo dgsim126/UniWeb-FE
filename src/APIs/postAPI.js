@@ -37,6 +37,22 @@ export const getPostDetail = async (postKey) => {
 };
 
 // 게시글 내 게임시작 [/api/post/:key/game]
+export const game = async (postKey) => {
+    const token = localStorage.getItem('token');
+    try {
+        const response = await axiosInstance.get(`/api/post/${postKey}/game`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Cache-Control': 'no-cache'
+            },
+            withCredentials: true,
+        });
+        return response;
+    } catch (error) {
+        console.error('게임시작 실패:', error);
+        throw error;
+    }
+};
 
 // 게시글 작성하기
 export const createPost = async (postData) => {
