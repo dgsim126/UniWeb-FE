@@ -10,11 +10,6 @@ import { loginState } from './states/atoms';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  // const [authenticate, setAuthenticate] = useState(false); // 로그인 유무 파악
-  // useEffect(() => {
-  //   console.log(authenticate);
-  // }, [authenticate]) // authenticate값이 바뀔 때 마다 실행
-
   const ResetLoginState = () => {
     // 로그인 상태 초기화
     const setLoginState = useSetRecoilState(loginState);
