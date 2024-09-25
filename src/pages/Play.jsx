@@ -60,6 +60,7 @@ const Play = () => {
       <pre>{JSON.stringify(gameData, null, 2)}</pre>  {/* JSON 데이터를 보기 쉽게 출력 */}
     </div>
 
+    // 연동 성공 시 웹에 표시
     // {/* Unity WebGL 빌드 표시 (iframe으로 WebGL 파일 로드) */}
   //   <div id="unityContainer">
   //   <iframe
