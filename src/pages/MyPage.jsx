@@ -51,8 +51,6 @@ function MyPage() {
             <Sidebar>
                 <SidebarItem>내 정보</SidebarItem>
                 <SidebarItem>작성한 글</SidebarItem>
-                -------
-                <SidebarItem>회원탈퇴</SidebarItem>
             </Sidebar>
             <MainContent>
                 <WelcomeMessage>{userData.name}님 환영합니다!</WelcomeMessage>
