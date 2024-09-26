@@ -71,25 +71,37 @@ const Play = () => {
   }
 
   return (
+    // <Container
+    //   style={{
+    //     display: 'flex',
+    //     justifyContent: 'center',  // 수평 정렬
+    //     alignItems: 'center',      // 수직 정렬
+    //     minHeight: '100vh'         // 화면의 최소 높이를 100%로 설정하여 중앙 정렬 가능
+    //   }}
+    // >
+    //   <div id="unityContainer">
+    //     <iframe
+    //       title="Unity WebGL Game"
+    //       src="/Build/UnityGame/index.html"  // 유니티 WebGL 빌드된 파일 경로
+    //       width="1000"
+    //       height="1000"
+    //       style={{ border: 'none' }}
+    //       allowFullScreen
+    //       onLoad={onUnityLoaded}  // iframe이 로드되면 Unity 로드 상태를 업데이트
+    //     />
+    //   </div>
+    // </Container>
     <Container
-      style={{
-        display: 'flex',
-        justifyContent: 'center',  // 수평 정렬
-        alignItems: 'center',      // 수직 정렬
-        minHeight: '100vh'         // 화면의 최소 높이를 100%로 설정하여 중앙 정렬 가능
-      }}
-    >
-      <div id="unityContainer">
-        <iframe
-          title="Unity WebGL Game"
-          src="/Build/UnityGame/index.html"  // 유니티 WebGL 빌드된 파일 경로
-          width="1000"
-          height="1000"
-          style={{ border: 'none' }}
-          allowFullScreen
-          onLoad={onUnityLoaded}  // iframe이 로드되면 Unity 로드 상태를 업데이트
-        />
-      </div>
+    style={{
+      display: 'flex',
+      justifyContent: 'center',  // 수평 정렬
+      alignItems: 'center',      // 수직 정렬
+      minHeight: '100vh'         // 화면의 최소 높이를 100%로 설정하여 중앙 정렬 가능
+    }}
+  >
+    <pre style={{ textAlign: 'left', whiteSpace: 'pre-wrap' }}>
+      {JSON.stringify(gameData, null, 2)}  {/* JSON 데이터를 보기 쉽게 포맷팅하여 화면에 출력 */}
+    </pre>
     </Container>
   );
 };
