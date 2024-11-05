@@ -5,24 +5,24 @@ import { Container } from "react-bootstrap";
 
 const Play = () => {
   const { post_key } = useParams();
-  const [gameData, setGameData] = useState(null);  // 게임 데이터를 저장하는 상태
+  const [gameData, setGameData] = useState(null); // 게임 데이터를 저장하는 상태
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [unityLoaded, setUnityLoaded] = useState(false); // Unity가 로드되었는지 상태로 확인
 
   // API를 호출해 게임 데이터를 가져오는 함수
   const fetchGameData = async () => {
-    setLoading(true);  // 로딩 상태 시작
+    setLoading(true); // 로딩 상태 시작
     try {
-      const response = await game(post_key);  // API 호출, post_key로 데이터 요청
+      const response = await game(post_key); // API 호출, post_key로 데이터 요청
       const gameData = response.data;  // 받은 데이터에서 필요한 부분 추출
-      setGameData(gameData);  // 상태에 게임 데이터 저장
+      setGameData(gameData); // 상태에 게임 데이터 저장
       console.log("게임 데이터:", gameData);
     } catch (error) {
       setError('게임 데이터를 불러오는 중 문제가 발생했습니다.');
       console.error('API 호출 실패:', error);
     } finally {
-      setLoading(false);  // 로딩 상태 종료
+      setLoading(false); // 로딩 상태 종료
     }
   };
 
@@ -30,8 +30,8 @@ const Play = () => {
   const sendGameDataToUnity = (data) => {
     const iframe = document.getElementById('unityContainer').querySelector('iframe');
     if (iframe && data) {
-      const jsonString = JSON.stringify(data);  // JSON 데이터를 문자열로 변환
-      console.log("Unity에 전달될 데이터:", jsonString);  // React에서 Unity로 전달될 JSON 데이터 확인
+      const jsonString = JSON.stringify(data); // JSON 데이터를 문자열로 변환
+      console.log("Unity에 전달될 데이터:", jsonString); // React에서 Unity로 전달될 JSON 데이터 확인
       iframe.contentWindow.postMessage({
         type: 'SendMessageToUnity',
         functionName: 'ReceiveJsonData',
@@ -68,16 +68,16 @@ const Play = () => {
       console.log("unityLoaded : ", unityLoaded);
       console.log("gameData : ", gameData);
       console.log("React: Unity 로드 완료 및 데이터 존재. Unity에 데이터 전달 시작");
-      sendGameDataToUnity(gameData);  // 데이터 전달
+      sendGameDataToUnity(gameData); // 데이터 전달
     }
-  }, [unityLoaded, gameData]);  // unityLoaded와 gameData가 변경될 때만 실행
+  }, [unityLoaded, gameData]); // unityLoaded와 gameData가 변경될 때만 실행
   
   if (loading) {
-    return <div>로딩 중...</div>;  // 데이터 로딩 중 표시
+    return <div>로딩 중...</div>; // 데이터 로딩 중 표시
   }
 
   if (error) {
-    return <div>{error}</div>;  // 에러 발생 시 에러 메시지 표시
+    return <div>{error}</div>; // 에러 발생 시 에러 메시지 표시
   }
 
   // 최신 유니티 빌드 파일 적용완료

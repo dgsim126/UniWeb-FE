@@ -171,7 +171,7 @@
 // `;
 
 
-
+// 문제 20문항, 보기 5개 고정
 import React, { useState } from "react";
 import { Container, Button, Form, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
