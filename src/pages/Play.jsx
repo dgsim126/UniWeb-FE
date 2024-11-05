@@ -93,7 +93,7 @@ const Play = () => {
       <div id="unityContainer">
         <iframe
           title="Unity WebGL Game"
-          src="/Build/UnityGame/index.html"  // 유니티 WebGL 빌드된 파일 경로
+          src="/Build/UnityGame/index.html"
           width="1000"
           height="700"
           style={{ border: 'none' }}
