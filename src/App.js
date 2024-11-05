@@ -33,6 +33,7 @@ function App() {
     console.log('현재 로그인 상태:', isLoggedIn); // 로그인 상태가 바뀔 때마다 출력
   }, [isLoggedIn]);
 
+  // 로그인 상태를 바꿔주는 함수
   const handleLogin = () => {
     setIsLoggedIn(!isLoggedIn);
   };
