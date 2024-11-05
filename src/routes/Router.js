@@ -40,7 +40,7 @@ const AppRouter = ({ isLoggedIn, handleLogin }) => {
         path="/my"
         element={
           <ProtectedRoute isLoggedIn={isLoggedIn}>
-            <MyPage />
+            <MyPage handleLogin={handleLogin}/>
           </ProtectedRoute>
         }
       />

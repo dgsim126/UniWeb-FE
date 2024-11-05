@@ -57,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/test6.loader.js";
+      var loaderUrl = buildUrl + "/Completed.loader.js";
       var config = {
-        dataUrl: buildUrl + "/test6.data",
-        frameworkUrl: buildUrl + "/test6.framework.js",
-        codeUrl: buildUrl + "/test6.wasm",
+        dataUrl: buildUrl + "/Completed.data",
+        frameworkUrl: buildUrl + "/Completed.framework.js",
+        codeUrl: buildUrl + "/Completed.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "2D RPG",
@@ -106,10 +106,21 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+		window.unityInstance = unityInstance;
                 loadingBar.style.display = "none";
+		window.parent.postMessage({
+ 		 type: "UnityLoaded",
+		 message: "JIH"
+		}, "*");
+
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
+		window.addEventListener('message', (event) => {
+                  if (event.data.type === 'SendMessageToUnity') {
+                    unityInstance.SendMessage('WebGLCommunication', event.data.functionName, event.data.data);
+                  }
+                });
               }).catch((message) => {
                 alert(message);
               });

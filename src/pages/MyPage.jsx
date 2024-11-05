@@ -4,7 +4,7 @@ import { myPageAPI, updateProfile } from "../APIs/myPageAPI";
 import { useNavigate } from 'react-router-dom';
 import { Container } from "react-bootstrap";
 
-function MyPage() {
+function MyPage({ handleLogin }) {
     const [userData, setUserData] = useState(null); // 사용자 데이터 상태
     const [formData, setFormData] = useState({ name: '', password: '', age: '' }); // 폼 입력 상태
     const navigate = useNavigate();
@@ -36,6 +36,8 @@ function MyPage() {
         try {
             await updateProfile(formData); // 수정한 정보 POST 요청
             alert('정보가 성공적으로 수정되었습니다.');
+            handleLogin(); // 로그인 상태 true로 변경
+            navigate('/');  // 메인 페이지 리디렉션
         } catch (error) {
             alert('수정 실패: ' + error.message);
         }
