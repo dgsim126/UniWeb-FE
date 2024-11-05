@@ -11,7 +11,7 @@ import MyPage from '../pages/MyPage';
 
 import ProtectedRoute from "../components/ProtectedRoute"; // 🌟🌟🌟 보호된 라우트 컴포넌트
 
-// 라우트 코드 모음
+// 라우트 코드 모음 - handleLogin : !handleLogin
 const AppRouter = ({ isLoggedIn, handleLogin }) => {
   return (
     <Routes>
