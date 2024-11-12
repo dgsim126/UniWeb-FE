@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import './index.css';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
@@ -26,16 +27,27 @@ function App() {
     return null;
   };
 
+  const setLoginState = useSetRecoilState(loginState);
   const [isSignUp, setIsSignUp] = useState(false); // 회원가입 유무
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); // 로그인 유무
 
-  useEffect(() => {
-    console.log('현재 로그인 상태:', isLoggedIn); // 로그인 상태가 바뀔 때마다 출력
-  }, [isLoggedIn]);
+  // useEffect(() => {
+  //   console.log('현재 로그인 상태:', isLoggedIn); // 로그인 상태가 바뀔 때마다 출력
+  // }, [isLoggedIn]);
 
-  // 로그인 상태를 바꿔주는 함수
+  // // 로그인 상태를 바꿔주는 함수
+  // const handleLogin = () => {
+  //   setIsLoggedIn(!isLoggedIn);
+  // };
+  useEffect(() => {
+    const storedLoginState = JSON.parse(localStorage.getItem('isLoggedIn'));
+    setIsLoggedIn(storedLoginState || false); // 저장된 값이 없으면 false
+  }, [setLoginState]);
+
   const handleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
+    const newLoginState = !isLoggedIn;
+    setIsLoggedIn(newLoginState);
+    localStorage.setItem('isLoggedIn', JSON.stringify(newLoginState));
   };
 
   return (

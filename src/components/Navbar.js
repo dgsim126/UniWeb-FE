@@ -55,10 +55,10 @@ const Navbar = ({ isLoggedIn, handleLogin }) => {
             </li>
           ))}
         </ul>
-        <div className='searchbox'>
+        {/* <div className='searchbox'>
           <FontAwesomeIcon icon={faSearch} />
           <input type="text" />
-        </div>
+        </div> */}
       </div>
     </div>
   )

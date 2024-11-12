@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Container, Button, ListGroup } from "react-bootstrap";
-import { useParams } from "react-router-dom"; // URL에서 post_key 추출
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { getPostDetail } from "../APIs/postAPI"; // API 호출 함수
+import { getPostDetail } from "../APIs/postAPI";
 import { useNavigate } from "react-router-dom";
 
 function PostDetail() {
-    const { post_key } = useParams(); // post_key를 URL에서 가져옴
-    const [ post, setPost ] = useState(null); // 게시글 데이터 상태
+    const { post_key } = useParams();
+    const [post, setPost] = useState(null);
     const navigate = useNavigate();
 
-    // API를 호출하여 게시글 상세 데이터를 가져오는 useEffect
     useEffect(() => {
         const fetchPostDetail = async () => {
             try {
-                const response = await getPostDetail(post_key); // 게시글 상세보기 API 호출
-                setPost(response.data); // 응답 데이터를 상태에 저장
+                const response = await getPostDetail(post_key);
+                setPost(response.data);
             } catch (error) {
                 console.error('게시글 상세보기 불러오기 실패:', error);
             }
@@ -23,14 +22,18 @@ function PostDetail() {
         fetchPostDetail();
     }, [post_key]);
 
-    // 로딩 중일 때 표시
     if (!post) {
         return <div>로딩 중...</div>;
     }
 
     return (
         <Container>
-            <PageTitle>{post.title}</PageTitle>
+            <TitleContainer>
+                <PageTitle>{post.title}</PageTitle>
+                <TopPlayButton variant="secondary" onClick={() => navigate(`/post/${post.post_key}/game`)}>
+                    게임 플레이
+                </TopPlayButton>
+            </TitleContainer>
             <PostDate>작성일: {new Date(post.date).toLocaleDateString()}</PostDate>
             {post.problems.map((problem) => (
                 <ProblemContainer key={problem.problem_key}>
@@ -56,11 +59,27 @@ export default PostDetail;
 
 // Styled Components
 
-const PageTitle = styled.h1`
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 20px 0;
-  text-align: center;
+  position: relative;
+`;
+
+const PageTitle = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+`;
+
+const TopPlayButton = styled(Button)`
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: green;
 `;
 
 const PostDate = styled.div`
@@ -75,7 +94,6 @@ const ProblemContainer = styled.div`
 `;
 
 const ProblemTitle = styled.h3`
-  margin-bottom: 15px;
   font-size: 1.5rem;
   font-weight: bold;
 `;
