@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Uniweb
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+교육용 웹 게임 서비스
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 목적
+- 높은 접근성을 가진 게임을 활용하여 아이들의 자연스러운 학습효과를 기대
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 주요 기능
+1. **게임 생성**  
+   - 사용자가 원하는 문제와 정답을 입력하여 게임 내 문제 생성
+2. **게임 공유**  
+   - 본인이 만든 문제와 정답을 공유할 수 있고 타인의 문제와 정답도 가져올 수 있어 다양한 문제 풀이 가능
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 개발 정보
+- **개발 기간:** 2024년 9월 4일 ~ 2024년 10월 13일  
+- **개발 인원:**  
+  - Frontend: 1명  
+  - Backend: 1명
+  - Game Development: 1명
+- **기술 스택:**
+  - Fronted: React.js, html, css, javascript
+  - Backend: Node.js, Express, Docker, git, AWS, MariaDB
+  - Game Development: unity, C#
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 수상
+- **[컴퓨터융합소프트웨어학과] 졸업 캡스톤 전체 3등**  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 관련 이미지
+![image](https://github.com/user-attachments/assets/1b001b70-2cd6-4ecf-9d80-c95362ccd3dc)
+![image](https://github.com/user-attachments/assets/ffb52ae1-5d41-48f6-a9ff-1b1cfffb9569)
+![image](https://github.com/user-attachments/assets/737af090-cfd8-4357-8519-bec4a49a3cd9)
+![image](https://github.com/user-attachments/assets/664ea51a-cbcd-485b-83cd-69cddce4c91f)
+![image](https://github.com/user-attachments/assets/7f7ed705-9b74-42fa-a0d9-5d03f45e815f)
+![image](https://github.com/user-attachments/assets/bc6ba4c4-c4c7-42fe-a4f1-3e341d78048c)
+![image](https://github.com/user-attachments/assets/43d70628-c840-4801-bb7b-68dde039c100)
+![image](https://github.com/user-attachments/assets/4cd88dc4-d7d2-4d17-8b2a-3e5c6fe84e0b)
+![image](https://github.com/user-attachments/assets/c8111dc2-cbcf-43e0-9c1a-81a05ca6f483)
+![image](https://github.com/user-attachments/assets/9d96678f-fb13-4902-af3b-9210cf6c0e9e)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
